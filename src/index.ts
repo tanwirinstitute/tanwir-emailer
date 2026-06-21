@@ -19,7 +19,11 @@ interface FinancialAidEmailRequest {
 // Create Express app
 const app = express();
 // Configure CORS
-app.use(cors());
+app.use(cors({
+  origin: ['https://tlp.tanwir.institute', 'http://tlp.tanwir.institute'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.json());
 
 // Financial aid acceptance email endpoint
